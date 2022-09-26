@@ -1,5 +1,5 @@
-import imp
-from pyexpat import model
+# import imp
+# from pyexpat import model
 from django.contrib.auth import get_user_model
 from django_countries.serializer_fields import CountryField
 from djoser.serializers import UserCreateSerializer
