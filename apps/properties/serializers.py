@@ -1,4 +1,4 @@
-from unicodedata import name
+
 from django_countries.serializer_fields import CountryField
 from django_countries.serializers import CountryFieldMixin
 from rest_framework import serializers
@@ -12,7 +12,7 @@ class PropertySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Property
-        fields = ["user","title","slug","ref_code","description","country","city","postal_code","street_address","property_number","price","tax","final_property_price","plot_area","total_floors","bedrooms","bathrooms","advert_type","property_type","cover_photo","photo_1","photo_2","photo_3","photo_4","published_status","views"]
+        fields = ["id","user","title","slug","ref_code","description","country","city","postal_code","street_address","property_number","price","tax","final_property_price","plot_area","total_floors","bedrooms","bathrooms","advert_type","property_type","cover_photo","photo_1","photo_2","photo_3","photo_4","published_status","views"]
 
     def get_user(self,obj):
         return obj.user.username
@@ -24,10 +24,10 @@ class PropertyCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Property
-        exclude = ["updated","pkid"]        
+        exclude = ["updated_at","pkid"]        
 
 
 class PropertyViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = PropertyViews
-        exclude = ["updated","pkid"]    
+        exclude = ["updated_at","pkid"]    

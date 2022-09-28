@@ -9,7 +9,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from apps.common.models import TimeStampedUUIDModel
-# Create your models here.
+
 
 
 
@@ -37,8 +37,9 @@ class Property(TimeStampedUUIDModel):
         COMMERCIAL = "Commercial", _("Commercial")
         OTHER = "Other", _("Other")
 
+                  
 
-    user = models.ForeignKey(User,verbose_name=_("Agent, Seller or Buyer"), related_name="agent_buyer", on_delete=models.DO_NOTHING),
+    user = models.ForeignKey(User,verbose_name=_("Agent,Seller or Buyer"),related_name="agent_buyer", on_delete=models.DO_NOTHING)
     title = models.CharField(verbose_name=_("Property Title"), max_length=250)
     slug = AutoSlugField(populate_from="title", unique=True, always_update=True)
     ref_code = models.CharField(verbose_name=_("Property Reference code"), max_length=255, unique=True,blank=True) 
@@ -79,7 +80,7 @@ class Property(TimeStampedUUIDModel):
 
     def save(self,*args,**kwargs):
         self.title = str.title(self.title)
-        self.description = str.description(self.description)
+        self.description = str.capitalize(self.description)
         self.ref_code = "".join(random.choices(string.ascii_uppercase + string.digits, k=10))
         super(Property,self).save(*args,**kwargs)
 
