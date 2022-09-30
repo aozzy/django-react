@@ -45,7 +45,7 @@ test-html:
 		docker compose exec api pytest -p no:warnings --cov=. --cov-report html
 
 flake8:
-		docker compose exec api api flake8 .
+		docker compose exec api flake8 .
 
 black-check:
 		docker compose exec api black --check --exclude=migrations .
