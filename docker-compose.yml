@@ -5,37 +5,49 @@ services:
     build:
       context: .
       dockerfile: ./docker/local/django/Dockerfile
-    command: /start 
+    command: /start
     volumes:
       - .:/app
       - static_volume:/app/staticfiles
       - media_volume:/app/mediafiles
-    ports: 
-     - "8000:8000"
+    # ports:
+    #  - "8000:8000"
     env_file:
-     - .env   
-    depends_on: 
-     - postgres-db
+      - .env
+    depends_on:
+      - postgres-db
     networks:
-     - django-react
+      - django-react
 
   postgres-db:
     image: postgres:12.0-alpine
-    ports: 
-      - "5432:5432"    
+    ports:
+      - "5432:5432"
 
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
     environment:
-
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
     networks:
-        - django-react  
+      - django-react
+  nginx:
+    restart: always
+    depends_on:
+      - api
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/mediafiles
+    build:
+      context: ./docker/local/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    networks:
+      - django-react
 
-       
 networks:
   django-react:
     driver: bridge
@@ -44,4 +56,3 @@ volumes:
   postgres_data:
   static_volume:
   media_volume:
-
