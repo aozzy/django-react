@@ -8,6 +8,11 @@ from .models import Property,PropertyViews
 class PropertySerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField()
     country = CountryField(name_only=True)
+    cover_photo = serializers.SerializerMethodField()
+    photo_1 = serializers.SerializerMethodField()
+    photo_2 = serializers.SerializerMethodField()
+    photo_3 = serializers.SerializerMethodField()
+    photo_4 = serializers.SerializerMethodField()
 
 
     class Meta:
@@ -16,6 +21,26 @@ class PropertySerializer(serializers.ModelSerializer):
 
     def get_user(self,obj):
         return obj.user.username
+
+    def get_cover_photo(self,obj):
+        return obj.cover_photo.url
+    
+    
+    def get_photo_1(self,obj):
+        return obj.photo_1.url
+    
+    
+    def get_photo_2(self,obj):
+        return obj.photo_2.url
+    
+    
+    def get_photo_3(self,obj):
+        return obj.photo_3.url
+    
+    
+    def get_photo_4(self,obj):
+        return obj.photo_4.url
+
 
 
 class PropertyCreateSerializer(serializers.ModelSerializer):
