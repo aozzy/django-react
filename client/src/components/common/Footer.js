@@ -35,11 +35,11 @@ const Footer = () => {
               </a>
             </li>
             <div className="copyright">
-              Copyright &copy; My Place {new Date().getFullYear}
+              Copyright &copy; My Place {new Date().getFullYear()}
             </div>
              <BackTop>
               <div className="goTop">
-              <i className="fas fas-arrow-circle-up"></i>
+              <i className="fas fa-arrow-circle-up"></i>
               </div>
              </BackTop>
           </ul>
