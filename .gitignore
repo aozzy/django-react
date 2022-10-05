@@ -2,9 +2,9 @@
 .idea
 .coverage*
 .DS_Store
-.staticfiles
-.mediafiles
-.client/node_modules
+staticfiles
+mediafiles
+client/node_modules
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
