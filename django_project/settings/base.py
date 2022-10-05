@@ -19,7 +19,6 @@ DEBUG = env("DEBUG")
 ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
 
-
 # Application definition
 
 DJANGO_APPS = [

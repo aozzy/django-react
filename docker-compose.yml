@@ -34,18 +34,6 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
     networks:
       - django-react
-  
-  client:
-      build:
-          context: ./client
-          dockerfile: Dockerfile.dev
-      restart: on-failure
-      volumes:
-          - ./client:/app
-          - /app/node_modules
-      networks:
-      - django-react    
-
 
   redis:
     image: redis:5-alpine
