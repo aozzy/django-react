@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import PropertiesPage from "./pages/PropertiesPage";
 import {ToastContainer} from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -13,19 +15,18 @@ function App() {
       <Header/>
       <main className="py-3">
         <Routes>
-          <Route path="/" element={<HomePage/>}></Route>
+          <Route path="/" element={<HomePage/>}/>
 
+       
+          <Route path="/properties" element={<PropertiesPage/>}/>
+          <Route path='*' element={<NotFound/>}/>
         </Routes>
 
-        <Routes>
-          <Route path="/properties" element={<PropertiesPage/>}></Route>
-        </Routes>
 
-
+      <ToastContainer theme="dark"/>
       </main>
       <Footer/>
       </BrowserRouter>
-      <ToastContainer/>
     </React.Fragment>
   );
 }
