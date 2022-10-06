@@ -5,6 +5,7 @@ import SpinnerComponent from '../components/SpinnerComponent'
 import { getProperties } from '../features/properties/propertySlice'
 import {toast} from "react-toastify"
 import Property from '../components/Property'
+import Title from "../components/Title";
 export default function PropertiesPage() {
   const {properties,isLoading,isSuccess,isError,message} = useSelector((state)=> state.properties)
   const dispatch = useDispatch()
@@ -16,6 +17,7 @@ export default function PropertiesPage() {
   },[dispatch,isError,message])
   return (
     <React.Fragment>
+      <Title title="Properties catalog" />
       <Container>
       {isLoading && <SpinnerComponent/>}
         <Row>
