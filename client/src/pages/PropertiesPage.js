@@ -2,23 +2,38 @@ import React, {useEffect} from 'react'
 import {Container,Col,Row} from "react-bootstrap"
 import {useSelector,useDispatch} from 'react-redux'
 import SpinnerComponent from '../components/SpinnerComponent'
-import { getProperties,reset } from '../features/properties/propertySlice'
-
+import { getProperties } from '../features/properties/propertySlice'
+import {toast} from "react-toastify"
+import Property from '../components/Property'
 export default function PropertiesPage() {
-  const {properties,isLoading,isSuccess} = useSelector((state)=> state.properties)
+  const {properties,isLoading,isSuccess,isError,message} = useSelector((state)=> state.properties)
   const dispatch = useDispatch()
   useEffect(()=>{
   dispatch(getProperties())
-  },[dispatch])
+  if (isError){
+    toast.error(message)
+  }
+  },[dispatch,isError,message])
   return (
     <React.Fragment>
       <Container>
       {isLoading && <SpinnerComponent/>}
         <Row>
-          <Col className='mg-top'>
-           <h1>Properties will be displayed here</h1>
+          <Col className='mg-top text-center'>
+           <h1>Properties</h1>
+           <hr className='hr-text'/>
           </Col>
         </Row>
+        {<>
+        <Row className='mt-3'>
+          {properties.map((item) =>(
+            <Col key={item.id} sm={12} md={6} lg={4} xl={3}>
+              <Property property={item}/>
+            </Col>
+          ))}
+
+        </Row>
+        </>}
       </Container>
     </React.Fragment>
   )
