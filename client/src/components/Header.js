@@ -2,8 +2,21 @@ import React from 'react'
 import {Container,Nav,Navbar,NavDropdown} from 'react-bootstrap'
 import {GiHouse} from 'react-icons/gi'
 import {LinkContainer} from 'react-router-bootstrap'
+import {FaSignInAlt, FaSignOutAlt} from 'react-icons/fa'
+import { useSelector, useDispatch } from 'react-redux'
+import {useNavigate} from 'react-router-dom'
+import {logout,reset} from '../features/auth/authSlice'
+
 
  function Header() {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {user} = useSelector(state => state.auth)
+  const logouthandler =()=> {
+    dispatch(logout())
+    dispatch(reset())
+    navigate('/')
+  }
   return (
     <header>
       <Navbar fixed="top" bg="dark" variant="dark" expand="lg" collapseOnSelect>
@@ -23,16 +36,29 @@ import {LinkContainer} from 'react-router-bootstrap'
             
             <Nav.Link>Properties</Nav.Link>
             </LinkContainer>
+            {user ? (
+               <NavDropdown title={user.firstName} id="username">
+            <LinkContainer to='/profile'>
+               <NavDropdown.Item>Profile</NavDropdown.Item>
+            </LinkContainer>
+               <NavDropdown.Item onClick={logouthandler}>Action</NavDropdown.Item>
+               <FaSignOutAlt/> Logout
             
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item>
                 Another action
               </NavDropdown.Item>
              
           
               
             </NavDropdown>
+  ): (
+            <LinkContainer to='/login'>
+              <Nav.Link>
+                <FaSignInAlt/> Login
+              </Nav.Link>
+
+            </LinkContainer>)
+  }
           </Nav>
         </Navbar.Collapse>
       </Container>
