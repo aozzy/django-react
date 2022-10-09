@@ -8,6 +8,8 @@ import {ToastContainer} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import NotFound from "./components/NotFound";
 import LoginPage from "./pages/LoginPage";
+import Register from "./pages/Register";
+import Activation from "./pages/Activation";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
        
           <Route path="/properties" element={<PropertiesPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/activate/:uid/:token" element={<Activation/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
 
