@@ -7,6 +7,7 @@ import PropertiesPage from "./pages/PropertiesPage";
 import {ToastContainer} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import NotFound from "./components/NotFound";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
 
        
           <Route path="/properties" element={<PropertiesPage/>}/>
+          <Route path="/login" element={<LoginPage/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
 

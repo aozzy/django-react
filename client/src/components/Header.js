@@ -37,16 +37,14 @@ import {logout,reset} from '../features/auth/authSlice'
             <Nav.Link>Properties</Nav.Link>
             </LinkContainer>
             {user ? (
-               <NavDropdown title={user.firstName} id="username">
+               <NavDropdown title={user.firstName ? user.firstName : "Welcome Back"} id="username">
             <LinkContainer to='/profile'>
                <NavDropdown.Item>Profile</NavDropdown.Item>
             </LinkContainer>
-               <NavDropdown.Item onClick={logouthandler}>Action</NavDropdown.Item>
-               <FaSignOutAlt/> Logout
+               <NavDropdown.Item onClick={logouthandler}><FaSignOutAlt/> Logout</NavDropdown.Item>
+               
             
-              <NavDropdown.Item>
-                Another action
-              </NavDropdown.Item>
+              
              
           
               
