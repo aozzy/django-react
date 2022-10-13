@@ -29,7 +29,7 @@ class GetProfileAPIView(APIView):
         user = self.request.user
         user_profile = Profile.objects.get(user=user)
         serializer = ProfileSerializer(user_profile, context={"request": request})
-
+        
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
