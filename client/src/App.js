@@ -10,6 +10,7 @@ import NotFound from "./components/NotFound";
 import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
 import Activation from "./pages/Activation";
+import Profiles from "./pages/Profiles";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/activate/:uid/:token" element={<Activation/>}/>
+          <Route path="/profile" element={<Profiles/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
 
