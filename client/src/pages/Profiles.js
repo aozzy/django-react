@@ -25,27 +25,19 @@ export default function Profiles() {
   ;  
   },[dispatch,isError,message])
   console.log(profile);
-  if (isLoading){
-    return (
-      <Container>
-        <Row>
-          <Col>
-          <SpinnerComponent/>
-          </Col>
-        </Row>
-      </Container>
-    )
-  }
+  
   return <div>
     
     <Container>
+      {isLoading && <SpinnerComponent/>}
    <Row className='mt-5'>
+    
     <Col className='mg-top'>
     
 
     
     <Form.Group className="mb-3">
-        <Form.Label className='mt-3'>First Nmae</Form.Label>
+        <Form.Label className='mt-3'>First Name</Form.Label>
         <Form.Control placeholder={`${profile.first_name}`} disabled />
         <Form.Label className='mt-3'>Last Name</Form.Label>
         <Form.Control placeholder={`${profile.last_name}`} disabled />

@@ -6,7 +6,7 @@ export default function Footer() {
    <footer>
     <Container>
       <Row>
-        <Col className='py-3'>
+        <Col className='text-center py-3'>
           Copyright &copy; My Place {new Date().getFullYear()}
         </Col>
       </Row>
