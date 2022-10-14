@@ -8,6 +8,7 @@ import {useNavigate} from 'react-router-dom'
 import {logout,reset} from '../features/auth/authSlice'
 
 
+
  function Header() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -32,15 +33,17 @@ import {logout,reset} from '../features/auth/authSlice'
             
             <Nav.Link>Home</Nav.Link>
             </LinkContainer>
+            {user && <LinkContainer to="/profile">
+            
+            <Nav.Link>Profile</Nav.Link>
+            </LinkContainer>}
             <LinkContainer to="/properties">
             
             <Nav.Link>Properties</Nav.Link>
             </LinkContainer>
             {user ? (
                <NavDropdown title={user.firstName ? user.firstName : "Welcome Back"} id="username">
-            <LinkContainer to='/profile'>
-               <NavDropdown.Item>Profile</NavDropdown.Item>
-            </LinkContainer>
+            
                <NavDropdown.Item onClick={logouthandler}><FaSignOutAlt/> Logout</NavDropdown.Item>
                
             
