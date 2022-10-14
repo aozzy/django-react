@@ -15,6 +15,7 @@ export const getProfile = createAsyncThunk("profile/getProfile", async(_,thunkAP
   } catch (error) {
     const message = (
       error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+      console.log(error.response) 
       return thunkAPI.rejectWithValue(message)
   }
 })
@@ -33,13 +34,13 @@ export const profileSlice = createSlice({
       state.isLoading = true
     })
     .addCase(getProfile.fulfilled,(state,action)=> {
-      state.isLoading = false;
-      state.isSuccess = true;
-      state.profile = action.payload
+      state.isLoading = false
+      state.isSuccess = true
+      state.profile = action.payload.profile
     })
     .addCase(getProfile.rejected,(state,action)=> {
-      state.isLoading = false;
-      state.isError= true;
+      state.isLoading = false
+      state.isError= true
       state.message = action.payload
     })
   }

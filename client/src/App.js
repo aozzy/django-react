@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
 import Activation from "./pages/Activation";
 import Profiles from "./pages/Profiles";
+import Hello from "./pages/Hello";
 
 function App() {
   return (
@@ -25,8 +26,9 @@ function App() {
           <Route path="/properties" element={<PropertiesPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/register" element={<Register/>}/>
-          <Route path="/activate/:uid/:token" element={<Activation/>}/>
           <Route path="/profile" element={<Profiles/>}/>
+          <Route path="/hello" element={<Hello/>}/>
+          <Route path="/activate/:uid/:token" element={<Activation/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
 

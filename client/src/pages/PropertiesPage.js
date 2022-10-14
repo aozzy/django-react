@@ -19,6 +19,7 @@ export default function PropertiesPage() {
     <React.Fragment>
       <Title title="Properties catalog" />
       <Container>
+        
       {isLoading && <SpinnerComponent/>}
         <Row>
           <Col className='mg-top text-center'>
