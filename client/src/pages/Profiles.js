@@ -30,9 +30,12 @@ export default function Profiles() {
     
     <Container>
       {isLoading && <SpinnerComponent/>}
+     
+
    <Row className='mt-5'>
+      <h1 className='mt-5'>General Information</h1>
     
-    <Col className='mg-top'>
+    <Col>
     
 
     
@@ -47,25 +50,37 @@ export default function Profiles() {
       {/* <Form.Group className="mb-3">
         <Form.Label>Disabled select menu</Form.Label>
         <Form.Select disabled>
-          <option>Disabled select</option>
+        <option>Disabled select</option>
         </Form.Select>
-      </Form.Group>
-      <Form.Group className="mb-3">
+        </Form.Group>
+        <Form.Group className="mb-3">
         <Form.Check type="checkbox" label="Can't check this" disabled />
       </Form.Group> */}
     </Col>
-    <Col className='mg-top'>
+    <Col >
     <Form.Group className="mb-3">
         <Form.Label className='mt-3'>Username</Form.Label>
         <Form.Control placeholder={`${profile.username}`} disabled />
-        <Form.Label className='mt-3'>Country</Form.Label>
-        <Form.Control placeholder={`${profile.country}`} disabled />
-        <Form.Label className='mt-3'>City</Form.Label>
-        <Form.Control placeholder={`${profile.city}`} disabled />
+        <Form.Label className='mt-3'>Gender</Form.Label>
+        <Form.Control placeholder={`${profile.gender}`} disabled />
+        <Form.Label className='mt-3'>Phone Number</Form.Label>
+        <Form.Control placeholder={`${profile.phone_number}`} disabled />
       </Form.Group>
     </Col>
    </Row>
-    
+     <Container>
+      <h1>Address</h1>
+      <Row>
+        <Col>
+     <Form.Group className="mb-3">
+     <Form.Label className='mt-3'>Country</Form.Label>
+     <Form.Control placeholder={`${profile.country}`} disabled />
+
+     </Form.Group>
+        
+        </Col>
+      </Row>
+     </Container>
     </Container>
   </div>
   
