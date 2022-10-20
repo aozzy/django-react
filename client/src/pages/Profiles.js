@@ -91,6 +91,20 @@ export default function Profiles() {
                 <Form.Control placeholder={`${profile.city}`} disabled />
               </Form.Group></Col>
         </Row>
+        <Row>
+          <Col><Form.Group className="mb-3">
+                <Form.Label>City</Form.Label>
+                <Form.Control placeholder={`${profile.city}`} disabled />
+              </Form.Group></Col>
+          <Col><Form.Group className="mb-3">
+                <Form.Label>City</Form.Label>
+                <Form.Control placeholder={`${profile.city}`} disabled />
+              </Form.Group></Col>
+          <Col><Form.Group className="mb-3">
+                <Form.Label>City</Form.Label>
+                <Form.Control placeholder={`${profile.city}`} disabled />
+              </Form.Group></Col>
+        </Row>
       </Container>
     </div>
   );
