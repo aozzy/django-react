@@ -4,6 +4,7 @@ import { getProfile } from "../features/profiles/profileSlice";
 import { Container, Col, Row, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import SpinnerComponent from "../components/SpinnerComponent";
+import Title from "../components/Title";
 export default function Profiles() {
   const { profile, isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.profile
@@ -24,6 +25,9 @@ export default function Profiles() {
 
   return (
     <div>
+      <Title title="Profile page">
+
+      
       <Container>
         {isLoading && <SpinnerComponent />}
 
@@ -106,6 +110,7 @@ export default function Profiles() {
               </Form.Group></Col>
         </Row>
       </Container>
+      </Title>
     </div>
   );
 }
