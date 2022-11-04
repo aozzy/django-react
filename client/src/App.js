@@ -28,7 +28,7 @@ function App() {
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/profile" element={<Profiles/>}/>
-          <Route path="/enquires" element={<EnquiresPage/>}/>
+          {/* <Route path="/enquires" element={<EnquiresPage/>}/> */}
           <Route path="/hello" element={<Hello/>}/>
           <Route path="/activate/:uid/:token" element={<Activation/>}/>
           <Route path='*' element={<NotFound/>}/>
