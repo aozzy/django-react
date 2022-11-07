@@ -22,14 +22,16 @@ export default function Profiles() {
     }
   }, [dispatch, isError, message]);
   console.log(profile);
-  if (isLoading){
-    console.log(isLoading);
-    return <SpinnerComponent/>
-  }
+  // if (isLoading){
+  //   console.log(isLoading);
+  //   return <Container>
+  //     <h1></h1>
+  //   </Container>
+  // }
 
   return (
-    <div>
-      <Title title="Profile page">
+    <React.Fragment>
+      <Title title="Profile page"/>
         <h2>Hello World</h2>
         <Container>
           {isLoading && <SpinnerComponent />}
@@ -125,7 +127,7 @@ export default function Profiles() {
             </Col>
           </Row> */}
         </Container>
-      </Title>
-    </div>
+   
+    </React.Fragment>
   );
 }
