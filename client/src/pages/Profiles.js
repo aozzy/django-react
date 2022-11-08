@@ -5,6 +5,7 @@ import { Container, Col, Row, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import SpinnerComponent from "../components/SpinnerComponent";
 import Title from "../components/Title";
+import Card from 'react-bootstrap/Card';
 export default function Profiles() {
   const { profile, isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.profile
@@ -32,7 +33,7 @@ export default function Profiles() {
   return (
     <React.Fragment>
       <Title title="Profile page"/>
-        <h2>Hello World</h2>
+      
         <Container>
           {isLoading && <SpinnerComponent />}
 
@@ -69,7 +70,7 @@ export default function Profiles() {
               </Form.Group>
             </Col>
           </Row>
-          <Container>
+         
             <h1>Address</h1>
             <Row>
               <Col sm={8}>
@@ -85,47 +86,25 @@ export default function Profiles() {
                 </Form.Group>
               </Col>
             </Row>
+          <Container>
+          <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+      <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Text>
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </Card.Text>
+      </Card.Body>
+     
+      <Card.Body>
+        <Card.Link href="#">Card Link</Card.Link>
+        <Card.Link href="#">Another Link</Card.Link>
+      </Card.Body>
+    </Card>
+
           </Container>
-          {/* <Row>
-            <Col>
-              <Form.Group className="mb-3">
-                <Form.Label>City</Form.Label>
-                <Form.Control placeholder={profile.city} disabled />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group className="mb-3">
-                <Form.Label>City</Form.Label>
-                <Form.Control placeholder={profile.city} disabled />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group className="mb-3">
-                <Form.Label>City</Form.Label>
-                <Form.Control placeholder={profile.city} disabled />
-              </Form.Group>
-            </Col>
-          </Row> */}
-          {/* <Row>
-            <Col>
-              <Form.Group className="mb-3">
-                <Form.Label>City</Form.Label>
-                <Form.Control placeholder={profile.city} disabled />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group className="mb-3">
-                <Form.Label>City</Form.Label>
-                <Form.Control placeholder={profile.city} disabled />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group className="mb-3">
-                <Form.Label>City</Form.Label>
-                <Form.Control placeholder={profile.city} disabled />
-              </Form.Group>
-            </Col>
-          </Row> */}
+        
         </Container>
    
     </React.Fragment>
